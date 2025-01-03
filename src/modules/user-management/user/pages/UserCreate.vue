@@ -1,53 +1,28 @@
 <template>
   <PageBreadcrumb :items="breadcrumbItems" />
-  <PageTitle
-    :name="t('user.addNew')"
-  />
+  <PageTitle :name="t('user.addNew')" />
 
   <PageContent>
-    <Form
-      class="grid gap-4"
-      @submit="onSubmit"
-    >
+    <Form class="grid gap-4" @submit="onSubmit">
       <PageContentSection :title="t('personalInfo')">
         <Row>
           <Col :md="12">
-            <InputField
-              required
-              name="lastName"
-              :label="t('lastName')"
-            />
+            <InputField required name="lastName" :label="t('lastName')" />
           </Col>
           <Col :md="12">
-            <InputField
-              required
-              name="firstName"
-              :label="t('firstName')"
-            />
+            <InputField required name="firstName" :label="t('firstName')" />
           </Col>
           <Col :md="12">
-            <InputField
-              name="lastNameKh"
-              :label="t('lastNameKh')"
-            />
+            <InputField name="lastNameKh" :label="t('lastNameKh')" />
           </Col>
           <Col :md="12">
-            <InputField
-              name="firstNameKh"
-              :label="t('firstNameKh')"
-            />
+            <InputField name="firstNameKh" :label="t('firstNameKh')" />
           </Col>
           <Col :md="12">
-            <InputField
-              name="phoneNumber"
-              :label="t('phoneNumber')"
-            />
+            <InputField name="phoneNumber" :label="t('phoneNumber')" />
           </Col>
           <Col :md="12">
-            <InputField
-              name="email"
-              :label="t('email')"
-            />
+            <InputField name="email" :label="t('email')" />
           </Col>
         </Row>
       </PageContentSection>
@@ -55,18 +30,10 @@
       <PageContentSection :title="t('additionalInfo')">
         <Row>
           <Col :md="8">
-            <BranchAutocomplete
-              required
-              name="branchCode"
-              @change="onBranchChange"
-            />
+            <BranchAutocomplete required name="branchCode" @change="onBranchChange" />
           </Col>
           <Col :md="8">
-            <RoleAutocomplete
-              required
-              name="roleIds"
-              :branch-code="values.branchCode"
-            />
+            <RoleAutocomplete required name="roleIds" :branch-code="values.branchCode" />
           </Col>
         </Row>
       </PageContentSection>
@@ -74,19 +41,10 @@
       <PageContentSection :title="t('loginInfo')">
         <Row>
           <Col :md="8">
-            <InputField
-              required
-              name="username"
-              :label="t('username')"
-            />
+            <InputField required name="username" :label="t('username')" />
           </Col>
           <Col :md="8">
-            <InputField
-              required
-              type="password"
-              name="password"
-              :label="t('password')"
-            />
+            <InputField required type="password" name="password" :label="t('password')" />
           </Col>
           <Col :md="8">
             <InputField

@@ -2,24 +2,12 @@
   <RouterLink :to="menu.to ?? ''">
     <div class="menu-item flex items-center rounded-lg hover:rounded-lg p-3">
       <div class="menu-item--icon mr-2">
-        <slot
-          v-if="$slots.icon"
-          name="icon"
-          :item="menu"
-        />
-        <component
-          :is="menu.icon"
-          v-else
-          size="20"
-        />
+        <slot v-if="$slots.icon" name="icon" :item="menu" />
+        <component :is="menu.icon" v-else size="20" />
       </div>
 
       <div :class="`menu-item--title ${collapsed ? 'w-0' : 'w-full'}`">
-        <slot
-          v-if="$slots.title"
-          name="title"
-          :item="menu"
-        />
+        <slot v-if="$slots.title" name="title" :item="menu" />
         <span v-else>{{ menu.label }}</span>
       </div>
     </div>
@@ -36,7 +24,6 @@ defineProps<MenuItemProps>();
 
 const store = useUseLayoutStore();
 const { collapsed } = storeToRefs(store);
-
 </script>
 
 <style scoped>

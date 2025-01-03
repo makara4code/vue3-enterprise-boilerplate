@@ -12,6 +12,4 @@ type PageContentSectionProps = {
 defineProps<PageContentSectionProps>();
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

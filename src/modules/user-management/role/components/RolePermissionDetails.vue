@@ -4,10 +4,7 @@
       {{ t('permissions') }}
     </SectionTitle>
     <Loading v-if="isLoading" />
-    <div
-      v-else
-      class="grid grid-cols-3 gap-6"
-    >
+    <div v-else class="grid grid-cols-3 gap-6">
       <Card
         v-for="resource in resources"
         :key="resource.id"
@@ -64,10 +61,10 @@ const checkedPermissions = computed<string[]>(() => {
 });
 
 onUnmounted(() => {
-  queryClient.cancelQueries({ queryKey: resourceQueryKeys.resourceWithPermission });
+  queryClient.cancelQueries({
+    queryKey: resourceQueryKeys.resourceWithPermission
+  });
 });
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

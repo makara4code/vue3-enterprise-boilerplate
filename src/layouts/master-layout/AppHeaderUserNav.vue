@@ -29,7 +29,7 @@ const items = ref([
         action: () => handleLogout()
       }
     ]
-  },
+  }
 ]);
 
 const toggle = (event: any) => {
@@ -39,22 +39,12 @@ const toggle = (event: any) => {
 function handleLogout() {
   logout();
 }
-
 </script>
 
 <template>
   <div class="flex flex-row items-center justify-end gap-2">
-    <UserAvatar
-      class="mr-0"
-      @click="toggle"
-    />
-    <Menu
-      id="overlay_menu"
-      ref="menu"
-      :model="items"
-      :popup="true"
-      class="w-full md:w-60"
-    >
+    <UserAvatar class="mr-0" @click="toggle" />
+    <Menu id="overlay_menu" ref="menu" :model="items" :popup="true" class="w-full md:w-60">
       <template #start>
         <span class="inline-flex items-center gap-1 px-3 py-4">
           <UserAvatar />
@@ -62,9 +52,7 @@ function handleLogout() {
             <p class="font-medium leading-none">
               {{ user?.displayName }}
             </p>
-            <p class="leading-none text-muted-foreground">
-              @{{ user?.username }}
-            </p>
+            <p class="leading-none text-muted-foreground">@{{ user?.username }}</p>
           </div>
         </span>
       </template>
@@ -72,11 +60,7 @@ function handleLogout() {
         <span class="text-primary">{{ item.label }}</span>
       </template>
       <template #item="{ item, props }">
-        <a
-          class="flex items-center"
-          v-bind="props.action"
-          @click="item.action"
-        >
+        <a class="flex items-center" v-bind="props.action" @click="item.action">
           <span :class="item.icon" />
           <span>{{ item.label }}</span>
           <span

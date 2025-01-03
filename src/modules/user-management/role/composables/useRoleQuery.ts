@@ -4,9 +4,18 @@ import { computed, type ComputedRef } from 'vue';
 import { AppRoute } from '@/constants';
 import router from '@/router';
 
-import { getPermissionIdsFromValuesToPermissionIds, getResourcePermissionIds } from '../../resource/resource-utils';
+import {
+  getPermissionIdsFromValuesToPermissionIds,
+  getResourcePermissionIds
+} from '../../resource/resource-utils';
 import { roleQueryKeys } from '../query-keys';
-import { createRole, fetchRoleAutocomplete, fetchRoleById, fetchRoles, updateRole } from '../role-service';
+import {
+  createRole,
+  fetchRoleAutocomplete,
+  fetchRoleById,
+  fetchRoles,
+  updateRole
+} from '../role-service';
 import type { RoleForm } from '../role-type';
 
 export function useRolesQuery() {
@@ -71,13 +80,16 @@ export function useCreateRoleMutation() {
 export function useUpdateRoleMutation(id: string) {
   return useMutation({
     mutationFn: (formValues: RoleForm) => {
-      return updateRole({
-        nameEn: formValues.nameEn,
-        nameKh: formValues.nameKh,
-        type: formValues.type,
-        description: formValues.description,
-        permissionIds: getPermissionIdsFromValuesToPermissionIds(formValues.permission)
-      }, id);
+      return updateRole(
+        {
+          nameEn: formValues.nameEn,
+          nameKh: formValues.nameKh,
+          type: formValues.type,
+          description: formValues.description,
+          permissionIds: getPermissionIdsFromValuesToPermissionIds(formValues.permission)
+        },
+        id
+      );
     },
     onSuccess: () => {
       router.push({ name: AppRoute.ROLE });

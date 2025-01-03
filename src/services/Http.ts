@@ -4,7 +4,6 @@ import queryString from 'query-string';
 import axios from '@/config/axios';
 
 export class Http {
-
   private static getError = (error: any) => {
     if (error.code === 'ERR_CANCELED') {
       console.log('Request aborted:', error.message);
@@ -16,7 +15,11 @@ export class Http {
     }
   };
 
-  static async get<T = any>(url: string, queryParams?: Record<string, any> | undefined, config?: AxiosRequestConfig) {
+  static async get<T = any>(
+    url: string,
+    queryParams?: Record<string, any> | undefined,
+    config?: AxiosRequestConfig
+  ) {
     try {
       if (queryParams) {
         const query = queryString.stringify(queryParams);

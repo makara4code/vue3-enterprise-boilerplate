@@ -58,7 +58,7 @@ export default {
     validation: {
       username: 'សូមបញ្ចូលឈ្មោះអ្នកប្រើប្រាស់',
       password: 'សូមបញ្ចូលពាក្យសម្ងាត់'
-    },
+    }
   },
 
   dashboard: 'ផ្ទាំងគ្រប់គ្រង',
@@ -87,7 +87,6 @@ export default {
 
   branch: {
     label: 'សាខា',
-    placeholder: 'ជ្រើសរើសសាខា',
+    placeholder: 'ជ្រើសរើសសាខា'
   }
-
 };

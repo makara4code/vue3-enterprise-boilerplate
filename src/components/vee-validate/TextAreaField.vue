@@ -1,14 +1,6 @@
 <template>
-  <Field
-    v-slot="{ componentField, errorMessage }"
-    :name
-  >
-    <FormItem
-      :name
-      :label
-      :required
-      :error-message="errorMessage"
-    >
+  <Field v-slot="{ componentField, errorMessage }" :name>
+    <FormItem :name :label :required :error-message="errorMessage">
       <Textarea
         v-bind="componentField"
         :rows="rows ?? 3"
@@ -37,6 +29,4 @@ type TextAreaProps = {
 defineProps<TextAreaProps>();
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

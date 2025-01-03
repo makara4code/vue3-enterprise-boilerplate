@@ -1,15 +1,6 @@
 <template>
-  <Field
-    v-slot="{ componentField, errorMessage }"
-    :name
-  >
-    <FormItem
-      :name
-      :label
-      :required
-      :error-message="errorMessage"
-      :extra
-    >
+  <Field v-slot="{ componentField, errorMessage }" :name>
+    <FormItem :name :label :required :error-message="errorMessage" :extra>
       <InputText
         v-bind="componentField"
         :aria-labelledby="name"

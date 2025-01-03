@@ -1,4 +1,3 @@
-
 export default {
   locale: {
     en: 'English',
@@ -59,7 +58,7 @@ export default {
     validation: {
       username: 'Please enter a username.',
       password: 'Please enter a password.'
-    },
+    }
   },
 
   dashboard: 'Dashboard',
@@ -88,7 +87,6 @@ export default {
 
   branch: {
     label: 'Branch',
-    placeholder: 'Select Branch',
+    placeholder: 'Select Branch'
   }
-
 };

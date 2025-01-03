@@ -1,9 +1,5 @@
 <template>
-  <Button
-    :label="label ?? t('cancel')"
-    icon="pi pi-times"
-    @click="goBack()"
-  />
+  <Button :label="label ?? t('cancel')" icon="pi pi-times" @click="goBack()" />
 </template>
 
 <script setup lang="ts">

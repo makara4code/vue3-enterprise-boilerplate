@@ -15,7 +15,7 @@ export function useUsersQuery() {
 export function useUserQuery(id: string) {
   return useQuery({
     queryKey: userQueryKeys.user(id),
-    queryFn: ({ signal }) => fetchUserById(id, signal),
+    queryFn: ({ signal }) => fetchUserById(id, signal)
   });
 }
 
@@ -28,9 +28,9 @@ export function useUserFormQuery(id: string) {
       return {
         ...rest,
         branchCode: branch.code,
-        roleIds: roles.map(role => role.id)
+        roleIds: roles.map((role) => role.id)
       };
-    },
+    }
   });
 }
 

@@ -1,10 +1,5 @@
 <template>
-  <Button
-    type="submit"
-    :loading
-    :label="label ?? t('save')"
-    icon="pi pi-save"
-  />
+  <Button type="submit" :loading :label="label ?? t('save')" icon="pi pi-save" />
 </template>
 
 <script setup lang="ts">

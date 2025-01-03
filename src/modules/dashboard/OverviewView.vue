@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 type Data = (typeof data)[number];
 const data = [
   { name: 'Jan', total: Math.floor(Math.random() * 5000) + 1000 },
@@ -18,11 +17,7 @@ const data = [
 </script>
 
 <template>
-  <VisXYContainer
-    height="350px"
-    :margin="{ left: 20, right: 20 }"
-    :data="data"
-  >
+  <VisXYContainer height="350px" :margin="{ left: 20, right: 20 }" :data="data">
     <VisStackedBar
       :x="(d: Data, i: number) => i"
       :y="(d: Data) => d.total"

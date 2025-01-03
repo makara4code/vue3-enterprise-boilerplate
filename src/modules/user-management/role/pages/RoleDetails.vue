@@ -1,14 +1,8 @@
 <template>
   <PageBreadcrumb :items="breadcrumbItems" />
   <PageTitle :name="data?.nameEn">
-    <template
-      v-if="hasPermission(Permission.EDIT_ROLE)"
-      #actionButton
-    >
-      <EditButton
-        :path="`./${data?.id}/edit`"
-        :label="t('role.edit')"
-      />
+    <template v-if="hasPermission(Permission.EDIT_ROLE)" #actionButton>
+      <EditButton :path="`./${data?.id}/edit`" :label="t('role.edit')" />
     </template>
   </PageTitle>
 
@@ -36,7 +30,7 @@ import {
   PageBreadcrumb,
   PageContent,
   PageContentSection,
-  PageTitle,
+  PageTitle
 } from '@/components';
 import { useTranslation } from '@/composables';
 import { AppRoute, Permission } from '@/constants';
@@ -99,7 +93,9 @@ const fields = computed((): DescriptionsFieldProps[] => {
 });
 
 onUnmounted(() => {
-  queryClient.cancelQueries({ queryKey: roleQueryKeys.role(params.id as string) });
+  queryClient.cancelQueries({
+    queryKey: roleQueryKeys.role(params.id as string)
+  });
 });
 </script>
 

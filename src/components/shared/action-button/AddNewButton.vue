@@ -1,10 +1,5 @@
 <template>
-  <Button
-    :label="label ?? t('addNew')"
-    icon="pi pi-plus"
-    as="router-link"
-    :to="link"
-  />
+  <Button :label="label ?? t('addNew')" icon="pi pi-plus" as="router-link" :to="link" />
 </template>
 
 <script setup lang="ts">

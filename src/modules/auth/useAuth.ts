@@ -11,7 +11,7 @@ export function useAuth() {
     return store.isAuthorize(menuAuthorities);
   }
 
-  function hasPermission(permission: typeof Permission[keyof typeof Permission]): boolean {
+  function hasPermission(permission: (typeof Permission)[keyof typeof Permission]): boolean {
     return authorities.value.includes(permission);
   }
 
@@ -20,5 +20,4 @@ export function useAuth() {
     hasAuthority,
     hasPermission
   };
-
 }

@@ -2,24 +2,13 @@
   <section class="flex justify-between min-h-8 text-[#303133] dark:text-[#E5EAF3]">
     <section class="w-3/6">
       <div class="flex items-center">
-        <div
-          v-if="showBackButton"
-          class="flex items-center"
-        >
-          <div
-            class="flex"
-            @click="goBack()"
-          >
-            <ChevronLeft
-              class="w-5 h-6 cursor-pointer"
-            />
+        <div v-if="showBackButton" class="flex items-center">
+          <div class="flex" @click="goBack()">
+            <ChevronLeft class="w-5 h-6 cursor-pointer" />
             <span class="ml-1">{{ t('back') }}</span>
           </div>
-        
-          <el-divider
-            direction="vertical"
-            class="!mx-4"
-          />
+
+          <el-divider direction="vertical" class="!mx-4" />
         </div>
 
         <span class="text-lg font-medium">
@@ -54,7 +43,7 @@ type PageTitleProps = {
 };
 
 withDefaults(defineProps<PageTitleProps>(), {
-  showBackButton: false,
+  showBackButton: false
 });
 
 const { t } = useTranslation();

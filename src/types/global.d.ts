@@ -1,7 +1,6 @@
-export { };
+export {};
 
 declare global {
-
   type SuccessResponse<T = any> = {
     data: T;
     message?: string;
@@ -13,5 +12,4 @@ declare global {
     message: string;
     statusCode: number;
   };
-
 }

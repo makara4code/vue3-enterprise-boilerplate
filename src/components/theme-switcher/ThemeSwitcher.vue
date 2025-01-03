@@ -5,23 +5,16 @@
         :src="dropdownItem[mode].icon"
         :alt="dropdownItem[mode].alt"
         :class="`relative h-5 w-5 rounded-full mr-2 cursor-pointer ${isDark ? 'invert' : ''}`"
-      >
+      />
     </DropdownMenuTrigger>
-    <DropdownMenuContent
-      class="w-42"
-      align="end"
-    >
+    <DropdownMenuContent class="w-42" align="end">
       <DropdownMenuGroup>
         <DropdownMenuItem
           v-for="{ theme, icon, alt, label } in dropdownItem"
           :key="theme"
           @click="onThemeChange(theme)"
         >
-          <img
-            :src="icon"
-            :alt="alt"
-            :class="`mr-2 ${isDark ? 'invert' : ''}`"
-          >
+          <img :src="icon" :alt="alt" :class="`mr-2 ${isDark ? 'invert' : ''}`" />
           {{ label }}
         </DropdownMenuItem>
       </DropdownMenuGroup>

@@ -1,10 +1,5 @@
 <template>
-  <Tag
-    v-if="state"
-    :severity="state.severity"
-    :label="state.label"
-    :icon="state.icon"
-  />
+  <Tag v-if="state" :severity="state.severity" :label="state.label" :icon="state.icon" />
 </template>
 
 <script setup lang="ts">

@@ -1,31 +1,18 @@
 <template>
   <PageBreadcrumb :items="breadcrumbItems" />
-  <PageTitle
-    :name="t('role.list')"
-    :show-back-button="false"
-  >
-    <template
-      v-if="hasPermission(Permission.CREATE_ROLE)"
-      #actionButton
-    >
-      <AddNewButton
-        :path="AppRoute.ROLE_CREATE"
-        :label="t('role.addNew')"
-      />
+  <PageTitle :name="t('role.list')" :show-back-button="false">
+    <template v-if="hasPermission(Permission.CREATE_ROLE)" #actionButton>
+      <AddNewButton :path="AppRoute.ROLE_CREATE" :label="t('role.addNew')" />
     </template>
   </PageTitle>
 
   <PageContent>
     <Card>
-      <DataTable
-        :loading="isLoading"
-        :data-source="data"
-        :columns
-      >
+      <DataTable :loading="isLoading" :data-source="data" :columns>
         <template #status="{ row: role }">
           <RoleStatus :status="role.status" />
         </template>
-        
+
         <template #actions="{ row: role }">
           <div class="flex gap-2">
             <Button
@@ -53,7 +40,15 @@
 import { useQueryClient } from '@tanstack/vue-query';
 import { computed, onUnmounted } from 'vue';
 
-import { AddNewButton, Button, Card, DataTable, PageBreadcrumb, PageContent, PageTitle } from '@/components';
+import {
+  AddNewButton,
+  Button,
+  Card,
+  DataTable,
+  PageBreadcrumb,
+  PageContent,
+  PageTitle
+} from '@/components';
 import { useTranslation } from '@/composables';
 import { AppRoute, Permission } from '@/constants';
 import { useAuth } from '@/modules/auth/useAuth';

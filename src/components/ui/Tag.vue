@@ -1,13 +1,5 @@
 <template>
-  <Tag
-    v-if="label"
-    :severity
-    :round
-    :effect
-    :icon="icon"
-    :label
-    class="text-sm font-medium"
-  />
+  <Tag v-if="label" :severity :round :effect :icon="icon" :label class="text-sm font-medium" />
 </template>
 
 <script setup lang="ts">

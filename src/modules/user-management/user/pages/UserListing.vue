@@ -1,27 +1,14 @@
 <template>
   <PageBreadcrumb :items="breadcrumbItems" />
-  <PageTitle
-    :name="t('user.list')"
-    :show-back-button="false"
-  >
-    <template
-      v-if="hasPermission(Permission.CREATE_USER)"
-      #actionButton
-    >
-      <AddNewButton
-        :path="AppRoute.USER_CREATE"
-        :label="t('user.addNew')"
-      />
+  <PageTitle :name="t('user.list')" :show-back-button="false">
+    <template v-if="hasPermission(Permission.CREATE_USER)" #actionButton>
+      <AddNewButton :path="AppRoute.USER_CREATE" :label="t('user.addNew')" />
     </template>
   </PageTitle>
 
   <PageContent>
     <Card>
-      <DataTable
-        :loading="isLoading"
-        :data-source="data"
-        :columns
-      >
+      <DataTable :loading="isLoading" :data-source="data" :columns>
         <template #fullName="{ row: user }">
           <div class="flex items-center">
             <UserAvatar />
@@ -31,11 +18,11 @@
             </div>
           </div>
         </template>
-        
+
         <template #status="{ row: user }">
           <UserStatus :status="user.status" />
         </template>
-        
+
         <template #actions="{ row: user }">
           <div class="flex gap-2">
             <Button
@@ -56,7 +43,7 @@
         </template>
       </DataTable>
     </Card>
-  </PageContent>  
+  </PageContent>
 </template>
 
 <script setup lang="ts">

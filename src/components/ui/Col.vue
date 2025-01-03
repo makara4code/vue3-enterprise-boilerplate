@@ -1,11 +1,5 @@
 <template>
-  <el-col
-    :xs="xs"
-    :sm="sm"
-    :md="md"
-    :lg="lg"
-    :xl="xl"
-  >
+  <el-col :xs="xs" :sm="sm" :md="md" :lg="lg" :xl="xl">
     <slot />
   </el-col>
 </template>

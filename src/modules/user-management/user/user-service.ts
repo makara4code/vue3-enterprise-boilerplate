@@ -1,5 +1,5 @@
-import { createUserApi, fetchUserByIdApi, fetchUsersApi, updateUserApi } from "./user-api";
-import type { CreateUserForm, EditUserForm, User } from "./user-type";
+import { createUserApi, fetchUserByIdApi, fetchUsersApi, updateUserApi } from './user-api';
+import type { CreateUserForm, EditUserForm, User } from './user-type';
 
 export async function fetchUsers(signal: AbortSignal) {
   const res = await fetchUsersApi(signal);
@@ -8,7 +8,7 @@ export async function fetchUsers(signal: AbortSignal) {
 
 export async function fetchUserById(id: string, signal: AbortSignal) {
   const res = await fetchUserByIdApi(id, signal);
-  return res?.data ?? {} as User;
+  return res?.data ?? ({} as User);
 }
 
 export async function createUser(values: CreateUserForm) {

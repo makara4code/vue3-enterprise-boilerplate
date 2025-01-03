@@ -1,21 +1,17 @@
 <template>
   <section class="h-full bg-gray-50 dark:bg-gray-900">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+      <div
+        class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
+      >
         <div class="p-6 space-y-8 md:space-y-8 sm:p-8">
           <div class="flex flex-col items-center justify-center">
-            <h1 class="text-2xl xl:text-2xl font-extrabold">
-              Welcome back!
-            </h1>
+            <h1 class="text-2xl xl:text-2xl font-extrabold">Welcome back!</h1>
             {{ t('signInToYourAccount') }}
           </div>
 
           <div>
-            <Message
-              v-if="isError"
-              severity="error"
-              class="mb-3"
-            >
+            <Message v-if="isError" severity="error" class="mb-3">
               {{ error?.message }}
             </Message>
             <Form @submit="onSubmit">
@@ -31,11 +27,7 @@
                 :label="t('password')"
                 :placeholder="t('login.placeholder.password')"
               />
-              <Button
-                type="submit"
-                class="w-full mt-4"
-                :loading="loading"
-              >
+              <Button type="submit" class="w-full mt-4" :loading="loading">
                 {{ t('signIn') }}
               </Button>
             </Form>
@@ -69,7 +61,12 @@ const { handleSubmit, resetForm } = useForm({
   validationSchema: toTypedSchema(loginSchema)
 });
 
-const { isPending: loading, isError, error, mutate } = useMutation({
+const {
+  isPending: loading,
+  isError,
+  error,
+  mutate
+} = useMutation({
   mutationFn: (credential: LoginForm) => loginWithCredential(credential),
   onSuccess: (response) => {
     if (response) {

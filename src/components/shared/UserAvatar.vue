@@ -22,6 +22,4 @@ const { user } = storeToRefs(store);
 const src = computed(() => user?.value?.profileImageUrl);
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -18,9 +18,8 @@ export const useUseLayoutStore = defineStore('useLayout', () => {
     collapsed,
     toggleCollapsed,
     showSubMenu,
-    toggleSubMenu,
+    toggleSubMenu
   };
-
 });
 
 if (import.meta.hot) {

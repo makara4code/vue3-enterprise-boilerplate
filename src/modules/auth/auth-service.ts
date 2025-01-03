@@ -1,20 +1,10 @@
-
 import { AppRoute } from '@/constants';
 import router from '@/router';
 import { AESCipher, RSACipher } from '@/utils/crypto';
 
 import { loginApi, logoutApi, refreshTokenApi } from './auth-api';
-import type {
-  LoginForm,
-  LoginRequest,
-  RefreshTokenRequest
-} from './auth-type';
-import {
-  destroySensitiveInfo,
-  getDeviceId,
-  getRefreshToken,
-  saveToken
-} from './auth-util';
+import type { LoginForm, LoginRequest, RefreshTokenRequest } from './auth-type';
+import { destroySensitiveInfo, getDeviceId, getRefreshToken, saveToken } from './auth-util';
 
 export async function loginWithCredential({ username, password }: LoginForm) {
   try {
@@ -61,7 +51,7 @@ export async function refreshToken(): Promise<string | undefined> {
     destroySensitiveInfo();
     router.push({ name: AppRoute.LOGIN });
   }
-};
+}
 
 export function logout(): void {
   logoutApi();

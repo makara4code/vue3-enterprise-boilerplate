@@ -1,9 +1,5 @@
 <template>
-  <Avatar
-    :src
-    :label="label"
-    :shape="shape ?? 'circle'"
-  />
+  <Avatar :src :label="label" :shape="shape ?? 'circle'" />
 </template>
 
 <script setup lang="ts">

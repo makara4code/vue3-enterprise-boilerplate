@@ -14,4 +14,4 @@ export type Resource = {
   nameEn: string;
   nameKh: string;
   permissions: Permission[];
-}
+};

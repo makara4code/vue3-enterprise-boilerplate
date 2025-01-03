@@ -1,12 +1,6 @@
 <template>
-  <Field
-    v-slot="{ componentField }"
-    :name="name"
-  >
-    <el-checkbox
-      v-bind="componentField"
-      :label
-    />
+  <Field v-slot="{ componentField }" :name="name">
+    <el-checkbox v-bind="componentField" :label />
   </Field>
 </template>
 

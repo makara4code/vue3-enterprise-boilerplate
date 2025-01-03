@@ -1,14 +1,8 @@
 <template>
   <PageBreadcrumb :items="breadcrumbItems" />
   <PageTitle :name="data?.fullName">
-    <template
-      v-if="hasPermission(Permission.EDIT_USER)"
-      #actionButton
-    >
-      <EditButton
-        :path="`./${data?.id}/edit`"
-        :label="t('user.edit')"
-      />
+    <template v-if="hasPermission(Permission.EDIT_USER)" #actionButton>
+      <EditButton :path="`./${data?.id}/edit`" :label="t('user.edit')" />
     </template>
   </PageTitle>
 
@@ -103,12 +97,14 @@ const fields = computed((): DescriptionsFieldProps[] => {
           // value: user.status
         }
       ]
-    },
+    }
   ];
 });
 
 onUnmounted(() => {
-  queryClient.cancelQueries({ queryKey: userQueryKeys.user(params.id as string) });
+  queryClient.cancelQueries({
+    queryKey: userQueryKeys.user(params.id as string)
+  });
 });
 </script>
 

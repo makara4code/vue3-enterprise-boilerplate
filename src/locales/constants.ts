@@ -2,7 +2,7 @@ interface LanguageType {
   value: string;
   label: string;
   icon?: string;
-};
+}
 
 export enum Locales {
   EN = 'en',

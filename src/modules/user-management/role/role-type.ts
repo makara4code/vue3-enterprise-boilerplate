@@ -8,7 +8,7 @@ export interface Role {
   description?: string;
   permissions?: Permission[];
   status: string;
-};
+}
 
 export interface RoleForm {
   nameEn: string;
@@ -16,7 +16,7 @@ export interface RoleForm {
   type: string;
   description?: string;
   permission?: Record<string, PermissionId[]>;
-};
+}
 
 export interface RoleRequest {
   nameEn: string;

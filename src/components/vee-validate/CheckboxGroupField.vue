@@ -6,16 +6,12 @@
       class="w-full"
       @change="handleCheckAllChange"
     >
-      {{ label ??t('selectAll') }}
+      {{ label ?? t('selectAll') }}
     </el-checkbox>
   </section>
   <Divider class="!my-2" />
 
-  <el-checkbox-group
-    v-model="value"
-    class="grid grid-cols-1"
-    @change="handleCheckedChange"
-  >
+  <el-checkbox-group v-model="value" class="grid grid-cols-1" @change="handleCheckedChange">
     <Checkbox
       v-for="item in options"
       :key="item[optionValueKey as string]"
@@ -39,7 +35,7 @@ type CheckboxGroupFieldProps<T> = {
   label?: string | undefined;
   name: string;
   options: T[];
-}
+};
 
 const { name, optionValueKey, optionLabelKey, options } = defineProps<CheckboxGroupFieldProps<T>>();
 
@@ -60,7 +56,7 @@ watch(value, () => {
 
 const handleCheckAllChange = (val: boolean) => {
   indeterminate.value = false;
-  const optionsIds = val ? options.map(item => item[optionValueKey] as string | number) : [];
+  const optionsIds = val ? options.map((item) => item[optionValueKey] as string | number) : [];
   setValue(optionsIds);
 };
 

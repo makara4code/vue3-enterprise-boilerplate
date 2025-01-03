@@ -1,4 +1,4 @@
 export const userQueryKeys = {
   users: ['users'],
-  user: (id: string) => ['user', id],
-}
+  user: (id: string) => ['user', id]
+};

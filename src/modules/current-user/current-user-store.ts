@@ -9,7 +9,10 @@ export const useCurrentUserStore = defineStore('currentUser', {
   getters: {
     isAuthorize: (state) => (menuAuthorities?: string[]) => {
       const authoritiesSet = new Set(state.authorities);
-      return menuAuthorities == null || menuAuthorities.some((authority) => authoritiesSet.has(authority));
+      return (
+        menuAuthorities == null ||
+        menuAuthorities.some((authority) => authoritiesSet.has(authority))
+      );
     }
   },
   actions: {

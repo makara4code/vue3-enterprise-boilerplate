@@ -1,28 +1,15 @@
 <template>
-  <nav
-    class="flex text-sm mb-4"
-    aria-label="Breadcrumb"
-  >
+  <nav class="flex text-sm mb-4" aria-label="Breadcrumb">
     <ol class="inline-flex items-center text-[#303133] dark:text-[#E5EAF3]">
       <li class="inline-flex items-center">
-        <RouterLink
-          to="/"
-          class="inline-flex items-center"
-        >
+        <RouterLink to="/" class="inline-flex items-center">
           {{ t('dashboard') }}
         </RouterLink>
       </li>
-      <li
-        v-for="{ title, to } in items"
-        :key="title"
-      >
+      <li v-for="{ title, to } in items" :key="title">
         <div class="flex items-center">
           <ChevronRight class="w-4 h-4 m-1" />
-          <RouterLink
-            v-if="to"
-            :to="to"
-            class="inline-flex items-center"
-          >
+          <RouterLink v-if="to" :to="to" class="inline-flex items-center">
             {{ title }}
           </RouterLink>
           <template v-else>

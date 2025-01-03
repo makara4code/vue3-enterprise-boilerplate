@@ -38,7 +38,9 @@ const enabled = computed(() => !!branchCode);
 const { roles, isLoading } = useRoleAutocompleteQuery(computedBranchCode);
 
 onUnmounted(() => {
-  queryClient.cancelQueries({ queryKey: roleQueryKeys.roleAutocomplete(computedBranchCode) });
+  queryClient.cancelQueries({
+    queryKey: roleQueryKeys.roleAutocomplete(computedBranchCode)
+  });
 });
 </script>
 

@@ -5,50 +5,28 @@
   >
     <div class="flex">
       <div class="menu-item--icon mr-2">
-        <slot
-          v-if="$slots.icon"
-          :item="menu"
-          name="icon"
-        />
-        <component
-          :is="menu.icon"
-          v-else
-          size="20"
-        />
+        <slot v-if="$slots.icon" :item="menu" name="icon" />
+        <component :is="menu.icon" v-else size="20" />
       </div>
     </div>
 
-    <div :class="`menu-item--title flex items-center justify-between ${collapsed ? 'w-0' : 'w-full'}`">
+    <div
+      :class="`menu-item--title flex items-center justify-between ${collapsed ? 'w-0' : 'w-full'}`"
+    >
       <div>
-        <slot
-          v-if="$slots.title"
-          :item="menu"
-          name="title"
-        />
+        <slot v-if="$slots.title" :item="menu" name="title" />
         <span v-else>{{ menu.label }}</span>
       </div>
-      <ChevronDown
-        :class="`${showSubMenu ? '-rotate-180' : ''} duration-200`"
-        :size="16"
-      />
+      <ChevronDown :class="`${showSubMenu ? '-rotate-180' : ''} duration-200`" :size="16" />
     </div>
   </div>
 
   <ul :class="`sub-menu ${showSubMenu ? 'show' : ''} ml-8`">
     <div class="overflow-hidden">
-      <li
-        v-for="subMenu in menu.subMenus ?? []"
-        :key="subMenu.key ?? subMenu.to"
-      >
-        <MenuItem
-          :menu="subMenu"
-          class="p-0"
-        >
+      <li v-for="subMenu in menu.subMenus ?? []" :key="subMenu.key ?? subMenu.to">
+        <MenuItem :menu="subMenu" class="p-0">
           <template #title="{ item }">
-            <slot
-              :item="item"
-              name="title"
-            />
+            <slot :item="item" name="title" />
           </template>
         </MenuItem>
       </li>
@@ -63,7 +41,6 @@ import { storeToRefs } from 'pinia';
 import type { MenuItemProps } from '@/types';
 import { useUseLayoutStore } from '../useLayout';
 import MenuItem from './MenuItem.vue';
-
 
 defineProps<MenuItemProps>();
 

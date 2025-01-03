@@ -4,7 +4,9 @@ import type { CreateUserForm, EditUserForm, User } from './user-type';
 const API_ENDPOINT = '/api/v1/users';
 
 export async function fetchUsersApi(signal: AbortSignal) {
-  return await Http.get<SuccessResponse<User[]>>(API_ENDPOINT, undefined, { signal });
+  return await Http.get<SuccessResponse<User[]>>(API_ENDPOINT, undefined, {
+    signal
+  });
 }
 
 export async function fetchUserByIdApi(id: string, signal: AbortSignal) {

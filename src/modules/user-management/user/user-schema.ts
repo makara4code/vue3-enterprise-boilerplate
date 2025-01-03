@@ -4,22 +4,23 @@ export const createUserValidationSchema = z
   .object({
     lastNameKh: z.string().max(50).optional().or(z.literal('')).nullable(),
     firstNameKh: z.string().max(50).optional().or(z.literal('')).nullable(),
-    lastName: z
-      .string({ message: 'Last name is required.' })
-      .max(35, { message: 'Last name must be no more than 35 characters long.' }),
-    firstName: z
-      .string({ message: 'First name is required.' })
-      .max(35, { message: 'First name must be no more than 35 characters long.' }),
+    lastName: z.string({ message: 'Last name is required.' }).max(35, {
+      message: 'Last name must be no more than 35 characters long.'
+    }),
+    firstName: z.string({ message: 'First name is required.' }).max(35, {
+      message: 'First name must be no more than 35 characters long.'
+    }),
     phoneNumber: z.string().min(9).max(15).optional().or(z.literal('')).nullable(),
     email: z.string().email().max(50).optional().or(z.literal('')).nullable(),
     branchCode: z.string({ message: 'Branch is required.' }),
-    roleIds: z.array(z.number())
-      .min(1, { message: 'At least one role is required.' }),
+    roleIds: z.array(z.number()).min(1, { message: 'At least one role is required.' }),
     username: z
       .string({ message: 'Username is required.' })
       .min(4, { message: 'Username must be at least 4 characters long.' })
       .max(35, { message: 'Username must be no more than 35 characters long.' })
-      .refine((value) => !value.includes(' '), { message: 'Username cannot contain spaces.' })
+      .refine((value) => !value.includes(' '), {
+        message: 'Username cannot contain spaces.'
+      })
       .refine((value) => /^[a-zA-Z0-9.]+$/.test(value), {
         message: 'Username can only contain letters, numbers, and dots.'
       }),
@@ -39,7 +40,7 @@ export const createUserValidationSchema = z
       .trim()
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: 'Passwords don\'t match.',
+    message: "Passwords don't match.",
     path: ['confirmPassword']
   });
 
@@ -49,19 +50,20 @@ export const updateUserValidationSchema = z.object({
   lastName: z
     .string({ message: 'Last name is required.' })
     .max(35, { message: 'Last name must be no more than 35 characters long.' }),
-  firstName: z
-    .string({ message: 'First name is required.' })
-    .max(35, { message: 'First name must be no more than 35 characters long.' }),
+  firstName: z.string({ message: 'First name is required.' }).max(35, {
+    message: 'First name must be no more than 35 characters long.'
+  }),
   phoneNumber: z.string().min(9).max(15).optional().or(z.literal('')).nullable(),
   email: z.string().email().max(50).optional().or(z.literal('')).nullable(),
   branchCode: z.string({ message: 'Branch is required.' }),
-  roleIds: z.array(z.number())
-    .min(1, { message: 'At least one role is required.' }),
+  roleIds: z.array(z.number()).min(1, { message: 'At least one role is required.' }),
   username: z
     .string({ message: 'Username is required.' })
     .min(4, { message: 'Username must be at least 4 characters long.' })
     .max(35, { message: 'Username must be no more than 35 characters long.' })
-    .refine((value) => !value.includes(' '), { message: 'Username cannot contain spaces.' })
+    .refine((value) => !value.includes(' '), {
+      message: 'Username cannot contain spaces.'
+    })
     .refine((value) => /^[a-zA-Z0-9.]+$/.test(value), {
       message: 'Username can only contain letters, numbers, and dots.'
     })

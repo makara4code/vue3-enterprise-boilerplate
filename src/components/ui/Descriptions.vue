@@ -1,14 +1,9 @@
 <template>
-  <div
-    v-for="field in fields"
-    :key="field.label"
-  >
-    <div class="px-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4 text-[#303133] dark:text-[#E5EAF3]">
-      <div
-        v-for="item in field.fields ?? [field]"
-        :key="item.label"
-        class="flex flex-col"
-      >
+  <div v-for="field in fields" :key="field.label">
+    <div
+      class="px-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4 text-[#303133] dark:text-[#E5EAF3]"
+    >
+      <div v-for="item in field.fields ?? [field]" :key="item.label" class="flex flex-col">
         <div class="grid grid-rows-2 gap-1">
           <span class="text-sm font-medium">{{ item.label }}</span>
 

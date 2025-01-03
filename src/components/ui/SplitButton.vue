@@ -16,7 +16,7 @@ type SplitButtonProps = {
   items: any[];
   size?: 'large' | 'small';
   severity?: 'secondary' | 'info' | 'success' | 'warn' | 'danger' | 'contrast' | 'help';
-}
+};
 
 defineProps<SplitButtonProps>();
 
@@ -29,6 +29,4 @@ const click = () => {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

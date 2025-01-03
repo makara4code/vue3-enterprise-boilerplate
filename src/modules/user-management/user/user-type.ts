@@ -35,7 +35,7 @@ type UserForm = {
   email?: string;
   branchCode: string;
   roleIds: number[];
-}
+};
 
 export type CreateUserForm = UserForm & {
   password: string;

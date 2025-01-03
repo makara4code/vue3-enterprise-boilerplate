@@ -1,6 +1,6 @@
-import { useQuery } from "@tanstack/vue-query";
-import { resourceQueryKeys } from "../query-keys";
-import { fetchResourceWithPermission } from "../resource-service";
+import { useQuery } from '@tanstack/vue-query';
+import { resourceQueryKeys } from '../query-keys';
+import { fetchResourceWithPermission } from '../resource-service';
 
 export function useResourceWithPermissionQuery() {
   return useQuery({

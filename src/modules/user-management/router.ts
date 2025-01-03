@@ -8,9 +8,7 @@ export const userManagementRoutes: RouteRecordRaw[] = [
     component: () => import('@/modules/user-management/user/pages/UserListing.vue'),
     meta: {
       requiresAuth: true,
-      authorities: [
-        Permission.VIEW_USER_LISTING,
-      ]
+      authorities: [Permission.VIEW_USER_LISTING]
     }
   },
   {
@@ -19,9 +17,7 @@ export const userManagementRoutes: RouteRecordRaw[] = [
     component: () => import('@/modules/user-management/user/pages/UserCreate.vue'),
     meta: {
       requiresAuth: true,
-      authorities: [
-        Permission.CREATE_USER
-      ]
+      authorities: [Permission.CREATE_USER]
     }
   },
   {
@@ -30,9 +26,7 @@ export const userManagementRoutes: RouteRecordRaw[] = [
     component: () => import('@/modules/user-management/user/pages/UserDetails.vue'),
     meta: {
       requiresAuth: true,
-      authorities: [
-        Permission.VIEW_USER_DETAILS
-      ]
+      authorities: [Permission.VIEW_USER_DETAILS]
     }
   },
   {
@@ -41,9 +35,7 @@ export const userManagementRoutes: RouteRecordRaw[] = [
     component: () => import('@/modules/user-management/user/pages/UserEdit.vue'),
     meta: {
       requiresAuth: true,
-      authorities: [
-        Permission.EDIT_USER,
-      ]
+      authorities: [Permission.EDIT_USER]
     }
   },
   {
@@ -52,9 +44,7 @@ export const userManagementRoutes: RouteRecordRaw[] = [
     component: () => import('@/modules/user-management/role/pages/RoleListing.vue'),
     meta: {
       requiresAuth: true,
-      authorities: [
-        Permission.VIEW_ROLE_LISTING,
-      ]
+      authorities: [Permission.VIEW_ROLE_LISTING]
     }
   },
   {
@@ -63,9 +53,7 @@ export const userManagementRoutes: RouteRecordRaw[] = [
     component: () => import('@/modules/user-management/role/pages/RoleCreate.vue'),
     meta: {
       requiresAuth: true,
-      authorities: [
-        Permission.CREATE_ROLE
-      ]
+      authorities: [Permission.CREATE_ROLE]
     }
   },
   {
@@ -74,9 +62,7 @@ export const userManagementRoutes: RouteRecordRaw[] = [
     component: () => import('@/modules/user-management/role/pages/RoleDetails.vue'),
     meta: {
       requiresAuth: true,
-      authorities: [
-        Permission.VIEW_ROLE_DETAILS
-      ]
+      authorities: [Permission.VIEW_ROLE_DETAILS]
     }
   },
   {
@@ -85,9 +71,7 @@ export const userManagementRoutes: RouteRecordRaw[] = [
     component: () => import('@/modules/user-management/role/pages/RoleEdit.vue'),
     meta: {
       requiresAuth: true,
-      authorities: [
-        Permission.EDIT_ROLE
-      ]
+      authorities: [Permission.EDIT_ROLE]
     }
   }
 ];

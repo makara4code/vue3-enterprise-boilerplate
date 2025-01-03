@@ -1,17 +1,18 @@
-import axios from "axios";
-import type { LoginRequest, LoginResponse, RefreshTokenRequest, RefreshTokenResponse } from "./auth-type";
-import { getAccessToken, getBearerToken, getDeviceId } from "./auth-util";
+import axios from 'axios';
+import type {
+  LoginRequest,
+  LoginResponse,
+  RefreshTokenRequest,
+  RefreshTokenResponse
+} from './auth-type';
+import { getAccessToken, getBearerToken, getDeviceId } from './auth-util';
 
 export async function loginApi(data: LoginRequest) {
-  return await axios.post<SuccessResponse<LoginResponse>>(
-    '/api/v1/oauth2/login',
-    data,
-    {
-      headers: {
-        'Device-Id': getDeviceId()
-      }
+  return await axios.post<SuccessResponse<LoginResponse>>('/api/v1/oauth2/login', data, {
+    headers: {
+      'Device-Id': getDeviceId()
     }
-  );
+  });
 }
 
 export async function refreshTokenApi(data: RefreshTokenRequest) {

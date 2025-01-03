@@ -1,11 +1,5 @@
 <template>
-  <FormItem
-    :name
-    :label
-    :required
-    :error-message="errorMessage"
-    :extra
-  >
+  <FormItem :name :label :required :error-message="errorMessage" :extra>
     <Select
       :model-value="value"
       :loading="loading"
@@ -38,8 +32,8 @@ type SelectProps = {
   placeholder?: string;
   size?: 'large' | 'small';
   options: T[] | undefined;
-  optionLabel: keyof T & string | ((item: T) => string);
-  optionValue: keyof T & string | ((item: T) => string);
+  optionLabel: (keyof T & string) | ((item: T) => string);
+  optionValue: (keyof T & string) | ((item: T) => string);
   extra?: string;
 };
 
@@ -56,7 +50,6 @@ function onChange(event: { value: string }) {
   setValue(event.value);
   emit('change', event.value);
 }
-
 </script>
 
 <style scoped></style>

@@ -1,27 +1,16 @@
 <template>
   <PageBreadcrumb :items="breadcrumbItems" />
-  <PageTitle
-    :name="role?.nameEn"
-    :loading="isLoading"
-  />
+  <PageTitle :name="role?.nameEn" :loading="isLoading" />
 
   <PageContent>
     <Form @submit="onSubmit">
       <PageContentSection :title="t('role.info')">
         <Row>
           <Col :md="8">
-            <InputField
-              required
-              name="nameEn"
-              :label="t('role.nameEn')"
-            />
+            <InputField required name="nameEn" :label="t('role.nameEn')" />
           </Col>
           <Col :md="8">
-            <InputField
-              required
-              name="nameKh"
-              :label="t('role.nameKh')"
-            />
+            <InputField required name="nameKh" :label="t('role.nameKh')" />
           </Col>
           <Col :md="8">
             <RoleTypeAutocomplete />
@@ -29,11 +18,7 @@
         </Row>
         <Row>
           <Col :md="24">
-            <TextAreaField
-              maxlength="255"
-              name="description"
-              :label="t('description')"
-            />
+            <TextAreaField maxlength="255" name="description" :label="t('description')" />
           </Col>
         </Row>
       </PageContentSection>
@@ -96,7 +81,9 @@ const { isLoading, data: role } = useRolePermissionIdsByIdQuery(params.id as str
 const { isSubmitting, onSubmit } = useRoleEditForm(params.id as string, role);
 
 onUnmounted(() => {
-  queryClient.cancelQueries({ queryKey: roleQueryKeys.rolePermissionIdsById(params.id as string) });
+  queryClient.cancelQueries({
+    queryKey: roleQueryKeys.rolePermissionIdsById(params.id as string)
+  });
 });
 </script>
 

@@ -16,11 +16,11 @@ export interface IMenuItem {
 }
 
 export interface MenuProps {
-  menus: IMenuItem[]
+  menus: IMenuItem[];
 }
 
 export interface MenuItemProps {
   menu: IMenuItem;
 }
 
-export type Permission = typeof Permission[keyof typeof Permission];
+export type Permission = (typeof Permission)[keyof typeof Permission];

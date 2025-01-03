@@ -1,4 +1,10 @@
-import { createRoleApi, fetchRoleAutocompleteApi, fetchRoleByIdApi, fetchRolesApi, updateRoleApi } from './role-api';
+import {
+  createRoleApi,
+  fetchRoleAutocompleteApi,
+  fetchRoleByIdApi,
+  fetchRolesApi,
+  updateRoleApi
+} from './role-api';
 import type { Role, RoleRequest } from './role-type';
 
 export async function fetchRoles(signal: AbortSignal) {
@@ -13,7 +19,7 @@ export async function fetchRoleAutocomplete(signal: AbortSignal, brancCode: stri
 
 export async function fetchRoleById(id: string, signal: AbortSignal) {
   const res = await fetchRoleByIdApi(id, signal);
-  return res?.data ?? {} as Role;
+  return res?.data ?? ({} as Role);
 }
 
 export async function createRole(values: RoleRequest) {

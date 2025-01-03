@@ -4,12 +4,7 @@
     <div class="app-container">
       <AppHeader />
       <AppContent>
-        <div
-          v-if="isLoading"
-          class="flex justify-center"
-        >
-          Loading...
-        </div>
+        <div v-if="isLoading" class="flex justify-center">Loading...</div>
         <UnauthorizeView v-else-if="!isAuthorized" />
         <RouterView v-else />
       </AppContent>

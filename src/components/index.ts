@@ -38,4 +38,3 @@ export { default as MultiSelectField } from './vee-validate/MultiSelectField.vue
 export { default as PasswordField } from './vee-validate/PasswordField.vue';
 export { default as SelectField } from './vee-validate/SelectField.vue';
 export { default as TextAreaField } from './vee-validate/TextAreaField.vue';
-
