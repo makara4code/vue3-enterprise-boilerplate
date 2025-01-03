@@ -48,7 +48,8 @@ import { useAuth } from '@/modules/auth/useAuth';
 import type { BreadcrumbItemProps, DescriptionsFieldProps } from '@/types';
 import UserDetailsInfo from '../components/UserDetailsInfo.vue';
 import UserStatus from '../components/UserStatus.vue';
-import { getFetchUserByIdQueryKey, useFetchUserById } from '../user-service';
+import { useUserQuery } from '../composables/useUserQuery';
+import { userQueryKeys } from '../query-keys';
 
 const queryClient = useQueryClient();
 const { t } = useTranslation();
@@ -68,7 +69,7 @@ const breadcrumbItems = computed<BreadcrumbItemProps[]>(() => [
   }
 ]);
 
-const { data } = useFetchUserById(params.id as string);
+const { data } = useUserQuery(params.id as string);
 
 const fields = computed((): DescriptionsFieldProps[] => {
   const user = data.value;
@@ -107,7 +108,7 @@ const fields = computed((): DescriptionsFieldProps[] => {
 });
 
 onUnmounted(() => {
-  queryClient.cancelQueries({ queryKey: getFetchUserByIdQueryKey(params.id as string) });
+  queryClient.cancelQueries({ queryKey: userQueryKeys.user(params.id as string) });
 });
 </script>
 

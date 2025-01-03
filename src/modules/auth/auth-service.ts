@@ -1,20 +1,16 @@
-import axios from 'axios';
 
 import { AppRoute } from '@/constants';
 import router from '@/router';
 import { AESCipher, RSACipher } from '@/utils/crypto';
 
+import { loginApi, logoutApi, refreshTokenApi } from './auth-api';
 import type {
   LoginForm,
   LoginRequest,
-  LoginResponse,
-  RefreshTokenRequest,
-  RefreshTokenResponse
+  RefreshTokenRequest
 } from './auth-type';
 import {
   destroySensitiveInfo,
-  getAccessToken,
-  getBearerToken,
   getDeviceId,
   getRefreshToken,
   saveToken
@@ -32,11 +28,7 @@ export async function loginWithCredential({ username, password }: LoginForm) {
       encryptedAesKey: RSACipher.encrypt(secretKey, process.env.PUBLIC_KEY ?? '')
     };
 
-    const res = await axios.post<SuccessResponse<LoginResponse>>('/api/v1/oauth2/login', data, {
-      headers: {
-        'Device-Id': getDeviceId()
-      }
-    });
+    const res = await loginApi(data);
     const { accessToken, refreshToken, expiresAt, deviceId } = res.data?.data ?? {};
     saveToken(accessToken, refreshToken, expiresAt, deviceId);
     return res.data;
@@ -55,15 +47,7 @@ export async function refreshToken(): Promise<string | undefined> {
         refreshToken: getRefreshToken() ?? ''
       };
 
-      const res = await axios.post<SuccessResponse<RefreshTokenResponse>>(
-        '/api/v1/oauth2/refresh-token',
-        data,
-        {
-          headers: {
-            'Device-Id': getDeviceId()
-          }
-        }
-      );
+      const res = await refreshTokenApi(data);
       const { accessToken, refreshToken, expiresAt, deviceId } = res.data?.data ?? {};
       saveToken(accessToken, refreshToken, expiresAt, deviceId);
       // TODO: display dialog session expired
@@ -80,18 +64,7 @@ export async function refreshToken(): Promise<string | undefined> {
 };
 
 export function logout(): void {
-  axios.post(
-    '/api/v1/oauth2/logout',
-    {
-      accessToken: getAccessToken()
-    },
-    {
-      headers: {
-        'Device-Id': getDeviceId(),
-        Authorization: getBearerToken()
-      }
-    }
-  );
+  logoutApi();
   destroySensitiveInfo();
   router.push({ name: AppRoute.LOGIN });
 }

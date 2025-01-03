@@ -115,8 +115,8 @@ import BranchAutocomplete from '@/modules/branch/components/BranchAutocomplete.v
 import type { BreadcrumbItemProps } from '@/types';
 
 import RoleAutocomplete from '../../role/components/RoleAutocomplete.vue';
+import { useUpdateUserMutation, useUserFormQuery } from '../composables/useUserQuery';
 import { updateUserValidationSchema } from '../user-schema';
-import { useFetchFormUserById, useUpdateUser } from '../user-service';
 import type { EditUserForm } from '../user-type';
 
 const { t } = useTranslation();
@@ -135,14 +135,14 @@ const breadcrumbItems = computed<BreadcrumbItemProps[]>(() => [
   }
 ]);
 
-const { isLoading, data } = useFetchFormUserById(params.id as string);
+const { isLoading, data } = useUserFormQuery(params.id as string);
 
 const { handleSubmit, values, setFieldValue } = useFormAsync<EditUserForm>({
   initialValues: data,
   validationSchema: toTypedSchema(updateUserValidationSchema)
 });
 
-const { isPending, mutate } = useUpdateUser(params.id as string);
+const { isPending, mutate } = useUpdateUserMutation(params.id as string);
 
 const onSubmit = handleSubmit((values) => {
   mutate(values);

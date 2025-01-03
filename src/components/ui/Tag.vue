@@ -5,9 +5,9 @@
     :round
     :effect
     :icon="icon"
-  >
-    <span class="text-sm font-medium">{{ label }}</span>
-  </Tag>
+    :label
+    class="text-sm font-medium"
+  />
 </template>
 
 <script setup lang="ts">

@@ -44,7 +44,8 @@ import { useAuth } from '@/modules/auth/useAuth';
 import type { BreadcrumbItemProps, DescriptionsFieldProps } from '@/types';
 import RolePermissionDetails from '../components/RolePermissionDetails.vue';
 import RoleStatus from '../components/RoleStatus.vue';
-import { fetchRoleByIdQueryKey, useFetchRoleById } from '../role-service';
+import { useRoleQuery } from '../composables/useRoleQuery';
+import { roleQueryKeys } from '../query-keys';
 
 const queryClient = useQueryClient();
 const { t } = useTranslation();
@@ -64,7 +65,7 @@ const breadcrumbItems = computed<BreadcrumbItemProps[]>(() => [
   }
 ]);
 
-const { data } = useFetchRoleById(params.id as string);
+const { data } = useRoleQuery(params.id as string);
 
 const fields = computed((): DescriptionsFieldProps[] => {
   const role = data.value;
@@ -98,7 +99,7 @@ const fields = computed((): DescriptionsFieldProps[] => {
 });
 
 onUnmounted(() => {
-  queryClient.cancelQueries({ queryKey: fetchRoleByIdQueryKey(params.id as string) });
+  queryClient.cancelQueries({ queryKey: roleQueryKeys.role(params.id as string) });
 });
 </script>
 

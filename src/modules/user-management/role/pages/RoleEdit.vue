@@ -72,7 +72,8 @@ import type { BreadcrumbItemProps } from '@/types';
 import RolePermission from '../components/RolePermission.vue';
 import RoleTypeAutocomplete from '../components/RoleTypeAutocomplete.vue';
 import { useRoleEditForm } from '../composables/useRoleEditForm';
-import { getFetchRolePermissionIdsByIdQueryKey, useFetchRolePermissionIdsById } from '../role-service';
+import { useRolePermissionIdsByIdQuery } from '../composables/useRoleQuery';
+import { roleQueryKeys } from '../query-keys';
 
 const queryClient = useQueryClient();
 const { t } = useTranslation();
@@ -91,11 +92,11 @@ const breadcrumbItems = computed<BreadcrumbItemProps[]>(() => [
   }
 ]);
 
-const { isLoading, data: role } = useFetchRolePermissionIdsById(params.id as string);
+const { isLoading, data: role } = useRolePermissionIdsByIdQuery(params.id as string);
 const { isSubmitting, onSubmit } = useRoleEditForm(params.id as string, role);
 
 onUnmounted(() => {
-  queryClient.cancelQueries({ queryKey: getFetchRolePermissionIdsByIdQueryKey(params.id as string) });
+  queryClient.cancelQueries({ queryKey: roleQueryKeys.rolePermissionIdsById(params.id as string) });
 });
 </script>
 

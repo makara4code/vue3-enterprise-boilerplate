@@ -1,6 +1,6 @@
 <template>
   <Avatar
-    :image="src"
+    :src
     :label="label"
     :shape="shape ?? 'circle'"
   />

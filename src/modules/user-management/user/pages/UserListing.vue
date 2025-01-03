@@ -79,7 +79,8 @@ import type { BreadcrumbItemProps, ColumnProps } from '@/types';
 
 import { useAuth } from '@/modules/auth/useAuth';
 import UserStatus from '../components/UserStatus.vue';
-import { getFetchUsersQueryKey, useFetchUsers } from '../user-service';
+import { useUsersQuery } from '../composables/useUserQuery';
+import { userQueryKeys } from '../query-keys';
 import type { User } from '../user-type';
 
 const queryClient = useQueryClient();
@@ -122,10 +123,10 @@ const columns = computed<ColumnProps<User>[]>(() => [
   }
 ]);
 
-const { data, isLoading } = useFetchUsers();
+const { data, isLoading } = useUsersQuery();
 
 onUnmounted(() => {
-  queryClient.cancelQueries({ queryKey: getFetchUsersQueryKey() });
+  queryClient.cancelQueries({ queryKey: userQueryKeys.users });
 });
 </script>
 

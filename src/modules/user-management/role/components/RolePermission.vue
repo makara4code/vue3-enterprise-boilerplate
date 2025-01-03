@@ -30,15 +30,16 @@ import { Card, CheckboxGroupField, Loading, SectionTitle } from '@/components';
 import { useTranslation } from '@/composables';
 import { useQueryClient } from '@tanstack/vue-query';
 import { onUnmounted } from 'vue';
-import { getFetchResourceWithPermissionsQueryKey, useFetchResourceWithPermissions } from '../../resource/resource-service';
+import { useResourceWithPermissionQuery } from '../../resource/composables/useResourceQuery';
+import { resourceQueryKeys } from '../../resource/query-keys';
 
 const queryClient = useQueryClient();
 const { t } = useTranslation();
 
-const { isLoading, data: resources } = useFetchResourceWithPermissions();
+const { isLoading, data: resources } = useResourceWithPermissionQuery();
 
 onUnmounted(() => {
-  queryClient.cancelQueries({ queryKey: getFetchResourceWithPermissionsQueryKey() });
+  queryClient.cancelQueries({ queryKey: resourceQueryKeys.resourceWithPermission });
 });
 </script>
 

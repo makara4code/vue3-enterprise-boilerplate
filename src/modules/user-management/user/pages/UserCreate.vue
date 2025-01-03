@@ -128,8 +128,8 @@ import { AppRoute } from '@/constants';
 import BranchAutocomplete from '@/modules/branch/components/BranchAutocomplete.vue';
 import type { BreadcrumbItemProps } from '@/types';
 import RoleAutocomplete from '../../role/components/RoleAutocomplete.vue';
+import { useCreateUserMutation } from '../composables/useUserQuery';
 import { createUserValidationSchema } from '../user-schema';
-import { useCreateUser } from '../user-service';
 import type { CreateUserForm } from '../user-type';
 
 const { t } = useTranslation();
@@ -151,7 +151,7 @@ const { handleSubmit, values, setFieldValue } = useFormAsync<CreateUserForm>({
   validationSchema: toTypedSchema(createUserValidationSchema)
 });
 
-const { isPending, mutate } = useCreateUser();
+const { isPending, mutate } = useCreateUserMutation();
 
 const onSubmit = handleSubmit((values) => {
   mutate(values);

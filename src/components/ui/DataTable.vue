@@ -1,15 +1,6 @@
 <template>
-  <DataTable
-    :value="dataSource"
-    table-style="min-width: 50rem"  
-  >
-    <Column
-      v-for="col of columns"
-      :key="col.dataIndex"
-      :field="col.dataIndex"
-      :header="col.title"
-      style="width: 25%"
-    >
+  <DataTable :value="dataSource" tableStyle="min-width: 50rem" :loading :columns="columns">
+    <Column v-for="col of columns" :key="col.dataIndex" :field="col.dataIndex" :header="col.title" style="width: 25%">
       <template #body="{ data, field }">
         <span>
           {{
@@ -17,10 +8,7 @@
               ? col.render(data)
               : data[field] ?? (col.displayDashIfValueIsNull ? '-' : '')
           }}
-          <slot
-            :name="col.key"
-            :row="data as T"
-          />
+          <slot :name="col.key" :row="data as T" />
         </span>
       </template>
     </Column>

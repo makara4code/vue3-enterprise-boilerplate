@@ -59,13 +59,14 @@ import { AppRoute, Permission } from '@/constants';
 import { useAuth } from '@/modules/auth/useAuth';
 import type { BreadcrumbItemProps, ColumnProps } from '@/types';
 import RoleStatus from '../components/RoleStatus.vue';
-import { fetchRolesQueryKey, useFetchRoles } from '../role-service';
+import { useRolesQuery } from '../composables/useRoleQuery';
+import { roleQueryKeys } from '../query-keys';
 import type { Role } from '../role-type';
 
 const queryClient = useQueryClient();
 const { t } = useTranslation();
 const { hasPermission } = useAuth();
-const { data, isLoading } = useFetchRoles();
+const { data, isLoading } = useRolesQuery();
 
 const breadcrumbItems = computed<BreadcrumbItemProps[]>(() => [
   {
@@ -97,7 +98,7 @@ const columns = computed<ColumnProps<Role>[]>(() => [
 ]);
 
 onUnmounted(() => {
-  queryClient.cancelQueries({ queryKey: fetchRolesQueryKey() });
+  queryClient.cancelQueries({ queryKey: roleQueryKeys.roles });
 });
 </script>
 

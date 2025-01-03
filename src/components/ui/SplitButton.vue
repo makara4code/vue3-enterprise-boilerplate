@@ -1,7 +1,7 @@
 <template>
   <SplitButton
     :label
-    :model="items"
+    :items
     :size="size ?? 'small'"
     :severity="severity ?? 'secondary'"
     @click="click"

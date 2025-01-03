@@ -40,7 +40,8 @@ import { computed, onUnmounted } from 'vue';
 
 import { Card, Checkbox, Divider, Loading, SectionTitle } from '@/components';
 import { useTranslation } from '@/composables';
-import { getFetchResourceWithPermissionsQueryKey, useFetchResourceWithPermissions } from '../../resource/resource-service';
+import { useResourceWithPermissionQuery } from '../../resource/composables/useResourceQuery';
+import { resourceQueryKeys } from '../../resource/query-keys';
 import type { Permission } from '../../resource/resource-type';
 
 type RolePermissionDetailsProps = {
@@ -52,10 +53,9 @@ const props = defineProps<RolePermissionDetailsProps>();
 const queryClient = useQueryClient();
 const { t } = useTranslation();
 
-const { isLoading, data: resources } = useFetchResourceWithPermissions();
+const { isLoading, data: resources } = useResourceWithPermissionQuery();
 
 const checkedPermissions = computed<string[]>(() => {
-  console.log('first');
   if (!props.permissions) {
     return [];
   }
@@ -64,7 +64,7 @@ const checkedPermissions = computed<string[]>(() => {
 });
 
 onUnmounted(() => {
-  queryClient.cancelQueries({ queryKey: getFetchResourceWithPermissionsQueryKey() });
+  queryClient.cancelQueries({ queryKey: resourceQueryKeys.resourceWithPermission });
 });
 </script>
 

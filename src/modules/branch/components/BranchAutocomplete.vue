@@ -17,7 +17,9 @@ import { onUnmounted } from 'vue';
 
 import { SelectField } from '@/components';
 import { useTranslation } from '@/composables';
-import { getFetchBranchAutocompleteApiQueryKey, useFetchMasterDataByDataTypeQuery } from '../branch-service';
+
+import { useBranchAutocompleteQuery } from '../composables/useBranchQuery';
+import { branchQueyKeys } from '../query-keys';
 
 interface BranchAutocompleteProps {
   name: string;
@@ -32,14 +34,14 @@ defineProps<BranchAutocompleteProps>();
 
 const queryClient = useQueryClient();
 const { t } = useTranslation();
-const { data, isLoading } = useFetchMasterDataByDataTypeQuery();
+const { data, isLoading } = useBranchAutocompleteQuery();
 
 function onChange(id: string) {
   emit('change', id);
 }
 
 onUnmounted(() => {
-  queryClient.cancelQueries({ queryKey: getFetchBranchAutocompleteApiQueryKey() });
+  queryClient.cancelQueries({ queryKey: branchQueyKeys.branchAutocomplete });
 });
 </script>
 

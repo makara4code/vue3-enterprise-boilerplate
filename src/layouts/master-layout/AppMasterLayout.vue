@@ -18,24 +18,20 @@
 </template>
 
 <script setup lang="ts">
-import { useQuery } from '@tanstack/vue-query';
 import { computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
 import { useAuth } from '@/modules/auth/useAuth';
-import { fetchCurrentUserApi } from '@/modules/current-user/current-user-api';
 import { useCurrentUserStore } from '@/modules/current-user/current-user-store';
 import type { CurrentUser } from '@/modules/current-user/current-user-type';
 
+import { useCurrentUserQuery } from '@/modules/current-user/composables/useCurrectUserQuery';
 import UnauthorizeView from '@/modules/exception/Unauthorize.vue';
 import AppContent from './AppContent.vue';
 import AppHeader from './AppHeader.vue';
 import AppSidebar from './AppSidebar.vue';
 
-const { data, isLoading } = useQuery({
-  queryKey: ['currentUser'],
-  queryFn: fetchCurrentUserApi
-});
+const { data, isLoading } = useCurrentUserQuery();
 
 const route = useRoute();
 const { setCurrentUser } = useCurrentUserStore();
