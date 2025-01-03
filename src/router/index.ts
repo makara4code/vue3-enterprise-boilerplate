@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import { env } from '@/utils/env';
+import { env } from '@/config/env';
 import { requiresAuth } from './guards';
-import { privateRoutes } from './privateRoutes';
-import { publicRoutes } from './publicRoutes';
+import { privateRoutes } from './private-routes';
+import { publicRoutes } from './public-routes';
 
 const router = createRouter({
   history: createWebHistory(env.APP_BASE_PATH),

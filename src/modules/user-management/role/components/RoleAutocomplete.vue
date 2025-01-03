@@ -18,7 +18,7 @@ import { computed, onUnmounted } from 'vue';
 
 import { MultiSelectField } from '@/components';
 import { useTranslation } from '@/composables';
-import { fetchRoleAutocompleteQueryKey, useFetchRoleAutocomplete } from '../roleService';
+import { fetchRoleAutocompleteQueryKey, useFetchRoleAutocomplete } from '../role-service';
 
 interface BranchAutocompleteProps {
   name: string;

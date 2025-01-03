@@ -1,10 +1,7 @@
-export * from './locale';
-export * from './system';
+export * from './app-permission';
+export * from './app-route';
+export * from './error-code';
 
-export * from './errorCode';
-export * from './permission';
-
-export * from './route';
-export * from './menu';
-
-export const VUE_BASE_PATH = process.env.VUE_BASE_PATH ?? '';
+export enum System {
+  Locale = 'locale'
+}

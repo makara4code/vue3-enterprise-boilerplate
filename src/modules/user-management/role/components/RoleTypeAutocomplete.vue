@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import { SelectField } from '@/components';
 import { useTranslation } from '@/composables';
-import { getFetchMasterDataByDataTypeQueryKey, useFetchMasterDataByDataTypeQuery } from '@/modules/master-data/masterDataService';
+import { getFetchMasterDataByDataTypeQueryKey, useFetchMasterDataByDataTypeQuery } from '@/modules/master-data/master-data-service';
 import { useQueryClient } from '@tanstack/vue-query';
 import { onUnmounted } from 'vue';
 

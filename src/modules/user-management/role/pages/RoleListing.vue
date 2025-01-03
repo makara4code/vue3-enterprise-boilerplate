@@ -9,7 +9,7 @@
       #actionButton
     >
       <AddNewButton
-        :path="AppRoute.Role.addNew.path"
+        :path="AppRoute.ROLE_CREATE"
         :label="t('role.addNew')"
       />
     </template>
@@ -33,14 +33,14 @@
               :label="t('view')"
               icon="pi pi-eye"
               as="router-link"
-              :to="{ name: AppRoute.Role.details.name, params: { id: role.id } }"
+              :to="{ name: AppRoute.ROLE_DETAILS, params: { id: role.id } }"
             />
             <Button
               v-if="hasPermission(Permission.EDIT_ROLE)"
               :label="t('edit')"
               icon="pi pi-pen-to-square"
               as="router-link"
-              :to="{ name: AppRoute.Role.edit.name, params: { id: role.id } }"
+              :to="{ name: AppRoute.ROLE_EDIT, params: { id: role.id } }"
             />
           </div>
         </template>
@@ -59,8 +59,8 @@ import { AppRoute, Permission } from '@/constants';
 import { useAuth } from '@/modules/auth/useAuth';
 import type { BreadcrumbItemProps, ColumnProps } from '@/types';
 import RoleStatus from '../components/RoleStatus.vue';
-import { fetchRolesQueryKey, useFetchRoles } from '../roleService';
-import type { Role } from '../roleType';
+import { fetchRolesQueryKey, useFetchRoles } from '../role-service';
+import type { Role } from '../role-type';
 
 const queryClient = useQueryClient();
 const { t } = useTranslation();

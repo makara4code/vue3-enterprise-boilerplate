@@ -7,16 +7,18 @@
       <div
         v-for="item in field.fields ?? [field]"
         :key="item.label"
-        class="mb-2 flex flex-col"
+        class="flex flex-col"
       >
-        <span class="text-sm font-medium">{{ item.label }}</span>
+        <div class="grid grid-rows-2 gap-1">
+          <span class="text-sm font-medium">{{ item.label }}</span>
 
-        <span v-if="item.slotName">
-          <slot :name="item.slotName" />
-        </span>
-        <span v-else>
-          {{ item.value ?? (displayDashIfValueIsNull ? '-' : '') }}
-        </span>
+          <span v-if="item.slotName">
+            <slot :name="item.slotName" />
+          </span>
+          <span v-else>
+            {{ item.value ?? (displayDashIfValueIsNull ? '-' : '') }}
+          </span>
+        </div>
       </div>
     </div>
   </div>

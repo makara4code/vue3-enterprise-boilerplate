@@ -4,7 +4,6 @@ import { createApp } from 'vue';
 
 import '@/assets/styles/main.css';
 
-import '@/http/axios/interceptor';
 import App from './App.vue';
 import { i18n } from './locales';
 import router from './router';

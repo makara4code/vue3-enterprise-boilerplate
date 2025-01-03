@@ -1,4 +1,4 @@
-export * as ArrayUtils from './ArrayUtils';
+export * as ArrayUtils from './arrayUtils';
 
 export function getInitials(name: string | undefined): string {
   // Split the name into parts using space as a delimiter

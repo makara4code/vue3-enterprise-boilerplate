@@ -3,8 +3,8 @@ import { createI18n } from 'vue-i18n';
 import en from './en';
 import km from './km';
 
-import { Locales, LOCALE_KEYS } from '@/constants';
-import { getLocale } from '@/services/localStorage';
+import { getLocale } from '@/services/app-service';
+import { LOCALE_KEYS, Locales } from './constants';
 
 // Type-define 'en-US' as the master schema for the resource
 export type MessageSchema = typeof en;

@@ -132,7 +132,7 @@ The boilerplate of Vue v3, Typescript, Vite, Vue Router, Pinia, Axios, Tailwind 
 │   │   └── localStorage.ts
 │   ├── types
 │   │   ├── index.ts
-│   │   └── menu.ts
+│   │   └── index.ts
 │   └── utils
 │       ├── common
 │       ├── crypto

@@ -1,7 +1,7 @@
 import { Permission } from '@/constants';
 import { storeToRefs } from 'pinia';
 
-import { useCurrentUserStore } from '@/modules/current-user/currentUserStore';
+import { useCurrentUserStore } from '@/modules/current-user/current-user-store';
 
 export function useAuth() {
   const store = useCurrentUserStore();

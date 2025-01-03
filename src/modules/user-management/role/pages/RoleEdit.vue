@@ -71,8 +71,8 @@ import { AppRoute } from '@/constants';
 import type { BreadcrumbItemProps } from '@/types';
 import RolePermission from '../components/RolePermission.vue';
 import RoleTypeAutocomplete from '../components/RoleTypeAutocomplete.vue';
-import { useRoleEditForm } from '../composibles/useRoleEditForm';
-import { getFetchRolePermissionIdsByIdQueryKey, useFetchRolePermissionIdsById } from '../roleService';
+import { useRoleEditForm } from '../composables/useRoleEditForm';
+import { getFetchRolePermissionIdsByIdQueryKey, useFetchRolePermissionIdsById } from '../role-service';
 
 const queryClient = useQueryClient();
 const { t } = useTranslation();
@@ -84,7 +84,7 @@ const breadcrumbItems = computed<BreadcrumbItemProps[]>(() => [
   },
   {
     title: t('role.list'),
-    to: AppRoute.Role.path
+    to: AppRoute.ROLE
   },
   {
     title: t('edit')

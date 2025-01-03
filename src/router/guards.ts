@@ -1,5 +1,5 @@
 import { AppRoute } from '@/constants';
-import { getAccessToken } from '@/services/localStorage';
+import { getAccessToken } from '@/modules/auth/auth-util';
 import type { RouteLocationNormalized } from 'vue-router';
 
 export function requiresAuth(to: RouteLocationNormalized) {
@@ -7,7 +7,7 @@ export function requiresAuth(to: RouteLocationNormalized) {
     // see more https://router.vuejs.org/guide/advanced/meta.html
     // see more https://router.vuejs.org/guide/advanced/navigation-guards.html
     if (!getAccessToken()) {
-      return { name: AppRoute.Login.name, query: { redirect: to.fullPath } };
+      return { name: AppRoute.LOGIN, query: { redirect: to.fullPath } };
     }
   }
 }

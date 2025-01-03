@@ -1,12 +1,12 @@
 import type { RouteRecordRaw } from 'vue-router';
 
 import { AppRoute } from '@/constants';
-import { getAccessToken } from '@/services/localStorage';
+import { getAccessToken } from './auth-util';
 
 const routes: RouteRecordRaw[] = [
   {
-    path: AppRoute.Login.path,
-    name: AppRoute.Login.name,
+    path: AppRoute.LOGIN,
+    name: AppRoute.LOGIN,
     beforeEnter: (to, from, next) => {
       if (!getAccessToken()) {
         next();
@@ -14,7 +14,7 @@ const routes: RouteRecordRaw[] = [
         next({ path: from.fullPath, replace: true });
       }
     },
-    component: () => import('@/modules/auth/LoginView.vue')
+    component: () => import('@/modules/auth/pages/LoginPage.vue')
   }
 ];
 

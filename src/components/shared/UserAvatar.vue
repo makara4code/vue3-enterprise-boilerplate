@@ -12,7 +12,7 @@
 import { storeToRefs } from 'pinia';
 import { computed } from 'vue';
 
-import { useCurrentUserStore } from '@/modules/current-user/currentUserStore';
+import { useCurrentUserStore } from '@/modules/current-user/current-user-store';
 import { getInitials } from '@/utils/common';
 import Avatar from '../ui/Avatar.vue';
 

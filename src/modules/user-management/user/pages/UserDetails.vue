@@ -35,12 +35,12 @@ import { computed, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 import {
-    Descriptions,
-    EditButton,
-    PageBreadcrumb,
-    PageContent,
-    PageContentSection,
-    PageTitle
+  Descriptions,
+  EditButton,
+  PageBreadcrumb,
+  PageContent,
+  PageContentSection,
+  PageTitle
 } from '@/components';
 import { useTranslation } from '@/composables';
 import { AppRoute, Permission } from '@/constants';
@@ -48,7 +48,7 @@ import { useAuth } from '@/modules/auth/useAuth';
 import type { BreadcrumbItemProps, DescriptionsFieldProps } from '@/types';
 import UserDetailsInfo from '../components/UserDetailsInfo.vue';
 import UserStatus from '../components/UserStatus.vue';
-import { getFetchUserByIdQueryKey, useFetchUserById } from '../userService';
+import { getFetchUserByIdQueryKey, useFetchUserById } from '../user-service';
 
 const queryClient = useQueryClient();
 const { t } = useTranslation();
@@ -61,7 +61,7 @@ const breadcrumbItems = computed<BreadcrumbItemProps[]>(() => [
   },
   {
     title: t('user.list'),
-    to: AppRoute.User.path
+    to: AppRoute.USER
   },
   {
     title: t('details')

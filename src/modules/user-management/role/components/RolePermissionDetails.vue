@@ -40,8 +40,8 @@ import { computed, onUnmounted } from 'vue';
 
 import { Card, Checkbox, Divider, Loading, SectionTitle } from '@/components';
 import { useTranslation } from '@/composables';
-import { getFetchResourceWithPermissionsQueryKey, useFetchResourceWithPermissions } from '../../resource/resourceService';
-import type { Permission } from '../../resource/resourceType';
+import { getFetchResourceWithPermissionsQueryKey, useFetchResourceWithPermissions } from '../../resource/resource-service';
+import type { Permission } from '../../resource/resource-type';
 
 type RolePermissionDetailsProps = {
   permissions: Permission[] | undefined;

@@ -3,8 +3,8 @@ import type { RouteRecordRaw } from 'vue-router';
 
 export const userManagementRoutes: RouteRecordRaw[] = [
   {
-    path: AppRoute.User.path,
-    name: AppRoute.User.name,
+    path: AppRoute.USER,
+    name: AppRoute.USER,
     component: () => import('@/modules/user-management/user/pages/UserListing.vue'),
     meta: {
       requiresAuth: true,
@@ -14,8 +14,8 @@ export const userManagementRoutes: RouteRecordRaw[] = [
     }
   },
   {
-    path: AppRoute.User.addNew.path,
-    name: AppRoute.User.addNew.name,
+    path: AppRoute.USER_CREATE,
+    name: AppRoute.USER_CREATE,
     component: () => import('@/modules/user-management/user/pages/UserCreate.vue'),
     meta: {
       requiresAuth: true,
@@ -25,8 +25,8 @@ export const userManagementRoutes: RouteRecordRaw[] = [
     }
   },
   {
-    path: AppRoute.User.details.path,
-    name: AppRoute.User.details.name,
+    path: AppRoute.USER_DETAILS,
+    name: AppRoute.USER_DETAILS,
     component: () => import('@/modules/user-management/user/pages/UserDetails.vue'),
     meta: {
       requiresAuth: true,
@@ -36,8 +36,8 @@ export const userManagementRoutes: RouteRecordRaw[] = [
     }
   },
   {
-    path: AppRoute.User.edit.path,
-    name: AppRoute.User.edit.name,
+    path: AppRoute.USER_EDIT,
+    name: AppRoute.USER_EDIT,
     component: () => import('@/modules/user-management/user/pages/UserEdit.vue'),
     meta: {
       requiresAuth: true,
@@ -47,8 +47,8 @@ export const userManagementRoutes: RouteRecordRaw[] = [
     }
   },
   {
-    path: AppRoute.Role.path,
-    name: AppRoute.Role.name,
+    path: AppRoute.ROLE,
+    name: AppRoute.ROLE,
     component: () => import('@/modules/user-management/role/pages/RoleListing.vue'),
     meta: {
       requiresAuth: true,
@@ -58,8 +58,8 @@ export const userManagementRoutes: RouteRecordRaw[] = [
     }
   },
   {
-    path: AppRoute.Role.addNew.path,
-    name: AppRoute.Role.addNew.name,
+    path: AppRoute.ROLE_CREATE,
+    name: AppRoute.ROLE_CREATE,
     component: () => import('@/modules/user-management/role/pages/RoleCreate.vue'),
     meta: {
       requiresAuth: true,
@@ -69,8 +69,8 @@ export const userManagementRoutes: RouteRecordRaw[] = [
     }
   },
   {
-    path: AppRoute.Role.details.path,
-    name: AppRoute.Role.details.name,
+    path: AppRoute.ROLE_DETAILS,
+    name: AppRoute.ROLE_DETAILS,
     component: () => import('@/modules/user-management/role/pages/RoleDetails.vue'),
     meta: {
       requiresAuth: true,
@@ -80,8 +80,8 @@ export const userManagementRoutes: RouteRecordRaw[] = [
     }
   },
   {
-    path: AppRoute.Role.edit.path,
-    name: AppRoute.Role.edit.name,
+    path: AppRoute.ROLE_EDIT,
+    name: AppRoute.ROLE_EDIT,
     component: () => import('@/modules/user-management/role/pages/RoleEdit.vue'),
     meta: {
       requiresAuth: true,

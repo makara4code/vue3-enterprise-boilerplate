@@ -111,12 +111,13 @@ import {
 } from '@/components';
 import { useFormAsync, useTranslation } from '@/composables';
 import { AppRoute } from '@/constants';
-import BranchAutocomplete from '@/modules/branch/component/BranchAutocomplete.vue';
+import BranchAutocomplete from '@/modules/branch/components/BranchAutocomplete.vue';
 import type { BreadcrumbItemProps } from '@/types';
+
 import RoleAutocomplete from '../../role/components/RoleAutocomplete.vue';
-import { updateUserValidationSchema } from '../userSchema';
-import { useFetchFormUserById, useUpdateUser } from '../userService';
-import type { EditUserForm } from '../userType';
+import { updateUserValidationSchema } from '../user-schema';
+import { useFetchFormUserById, useUpdateUser } from '../user-service';
+import type { EditUserForm } from '../user-type';
 
 const { t } = useTranslation();
 const { params } = useRoute();
@@ -127,7 +128,7 @@ const breadcrumbItems = computed<BreadcrumbItemProps[]>(() => [
   },
   {
     title: t('user.list'),
-    to: AppRoute.User.path
+    to: AppRoute.USER
   },
   {
     title: t('edit')

@@ -9,7 +9,7 @@
       #actionButton
     >
       <AddNewButton
-        :path="AppRoute.User.addNew.path"
+        :path="AppRoute.USER_CREATE"
         :label="t('user.addNew')"
       />
     </template>
@@ -43,14 +43,14 @@
               :label="t('view')"
               icon="pi pi-eye"
               as="router-link"
-              :to="{ name: AppRoute.User.details.name, params: { id: user.id } }"
+              :to="{ name: AppRoute.USER_DETAILS, params: { id: user.id } }"
             />
             <Button
               v-if="hasPermission(Permission.EDIT_USER)"
               :label="t('edit')"
               icon="pi pi-pen-to-square"
               as="router-link"
-              :to="{ name: AppRoute.User.edit.name, params: { id: user.id } }"
+              :to="{ name: AppRoute.USER_EDIT, params: { id: user.id } }"
             />
           </div>
         </template>
@@ -64,13 +64,13 @@ import { useQueryClient } from '@tanstack/vue-query';
 import { computed, onUnmounted } from 'vue';
 
 import {
-    AddNewButton,
-    Button,
-    Card,
-    DataTable,
-    PageBreadcrumb,
-    PageTitle,
-    UserAvatar
+  AddNewButton,
+  Button,
+  Card,
+  DataTable,
+  PageBreadcrumb,
+  PageTitle,
+  UserAvatar
 } from '@/components';
 import PageContent from '@/components/shared/PageContent.vue';
 import { useTranslation } from '@/composables';
@@ -79,8 +79,8 @@ import type { BreadcrumbItemProps, ColumnProps } from '@/types';
 
 import { useAuth } from '@/modules/auth/useAuth';
 import UserStatus from '../components/UserStatus.vue';
-import { getFetchUsersQueryKey, useFetchUsers } from '../userService';
-import type { User } from '../userType';
+import { getFetchUsersQueryKey, useFetchUsers } from '../user-service';
+import type { User } from '../user-type';
 
 const queryClient = useQueryClient();
 const { t } = useTranslation();

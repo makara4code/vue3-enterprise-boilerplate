@@ -31,12 +31,12 @@ import { computed, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 import {
-    Descriptions,
-    EditButton,
-    PageBreadcrumb,
-    PageContent,
-    PageContentSection,
-    PageTitle,
+  Descriptions,
+  EditButton,
+  PageBreadcrumb,
+  PageContent,
+  PageContentSection,
+  PageTitle,
 } from '@/components';
 import { useTranslation } from '@/composables';
 import { AppRoute, Permission } from '@/constants';
@@ -44,7 +44,7 @@ import { useAuth } from '@/modules/auth/useAuth';
 import type { BreadcrumbItemProps, DescriptionsFieldProps } from '@/types';
 import RolePermissionDetails from '../components/RolePermissionDetails.vue';
 import RoleStatus from '../components/RoleStatus.vue';
-import { fetchRoleByIdQueryKey, useFetchRoleById } from '../roleService';
+import { fetchRoleByIdQueryKey, useFetchRoleById } from '../role-service';
 
 const queryClient = useQueryClient();
 const { t } = useTranslation();
@@ -57,7 +57,7 @@ const breadcrumbItems = computed<BreadcrumbItemProps[]>(() => [
   },
   {
     title: t('role.list'),
-    to: AppRoute.Role.path
+    to: AppRoute.ROLE
   },
   {
     title: t('details')
