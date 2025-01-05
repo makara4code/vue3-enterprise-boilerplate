@@ -1,5 +1,6 @@
 <template>
   <SelectField
+    :required="true"
     :loading="isLoading"
     name="type"
     :label="t('role.roleType')"

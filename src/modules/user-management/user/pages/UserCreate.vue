@@ -44,15 +44,10 @@
             <InputField required name="username" :label="t('username')" />
           </Col>
           <Col :md="8">
-            <InputField required type="password" name="password" :label="t('password')" />
+            <PasswordField required name="password" :label="t('password')" />
           </Col>
           <Col :md="8">
-            <InputField
-              required
-              type="password"
-              name="confirmPassword"
-              :label="t('confirmPassword')"
-            />
+            <PasswordField required name="confirmPassword" :label="t('confirmPassword')" />
           </Col>
         </Row>
       </PageContentSection>
@@ -78,6 +73,7 @@ import {
   PageContent,
   PageContentSection,
   PageTitle,
+  PasswordField,
   Row,
   SaveButton
 } from '@/components';
